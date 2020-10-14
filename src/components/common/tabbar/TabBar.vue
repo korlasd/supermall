@@ -22,7 +22,7 @@
         left: 0px;
         right: 0px;
         bottom: 0;
-        box-shadow: 0 -2px 1px rgba(100,100,100,.8);
+        box-shadow: 0 -2px 1px rgba(100,100,100,.3);
     }
 
 </style>

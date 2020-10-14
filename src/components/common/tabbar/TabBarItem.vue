@@ -49,6 +49,10 @@
         width: 24px;
         height: 24px;
     }
+    .tab_bar_item img{
+        width: 24px;
+        height: 24px;
+    }
     .active{
         color: red;
     }

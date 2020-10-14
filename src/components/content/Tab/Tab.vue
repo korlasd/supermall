@@ -3,10 +3,10 @@
     <TabBar>
     <TabBarItem path="/home">
         <template v-slot:item_icon>
-            <img src="../assets/img/shouye.svg">
+            <img src="../../../assets/img/TabBar/shouye.svg">
         </template>
         <template v-slot:item_icon_active>
-            <img src="../assets/img/shouye_active.svg">
+            <img src="../../../assets/img/TabBar/shouye_active.svg">
         </template>
         <template v-slot:item_text>
             <div>首页</div>
@@ -14,10 +14,10 @@
     </TabBarItem>
     <TabBarItem path="/classfi">
         <template v-slot:item_icon>
-            <img src="../assets/img/fenlei.svg">
+            <img src="../../../assets/img/TabBar/fenlei.svg">
         </template>
         <template v-slot:item_icon_active>
-            <img src="../assets/img/fenlei_active.svg">
+            <img src="../../../assets/img/TabBar/fenlei_active.svg">
         </template>
         <template v-slot:item_text>
             <div>分类</div>
@@ -25,10 +25,10 @@
     </TabBarItem>
     <TabBarItem path="/shopping">
         <template v-slot:item_icon>
-            <img src="../assets/img/shopping.svg">
+            <img src="../../../assets/img/TabBar/shopping.svg">
         </template>
         <template v-slot:item_icon_active>
-            <img src="../assets/img/shopping_active.svg">
+            <img src="../../../assets/img/TabBar/shopping_active.svg">
         </template>
         <template v-slot:item_text>
             <div>购物车</div>
@@ -36,10 +36,10 @@
     </TabBarItem>
     <TabBarItem path="/my">
         <template v-slot:item_icon>
-            <img src="../assets/img/my.svg">
+            <img src="../../../assets/img/TabBar/my.svg">
         </template>
         <template v-slot:item_icon_active>
-            <img src="../assets/img/my_active.svg">
+            <img src="../../../assets/img/TabBar/my_active.svg">
         </template>
         <template v-slot:item_text>
             <div>我的</div>
@@ -48,8 +48,8 @@
 </TabBar>
 </template>
 <script>
-    import TabBar from '../components/TabBar'
-    import TabBarItem from '../components/TabBarItem'
+    import TabBar from '../../common/tabbar/TabBar'
+    import TabBarItem from '../../common/tabbar/TabBarItem'
     export default {
         name: "Tab",
         components:{
@@ -60,8 +60,5 @@
 </script>
 
 <style scoped>
-    .tab_bar_item img{
-        width: 24px;
-        height: 24px;
-    }
+
 </style>
