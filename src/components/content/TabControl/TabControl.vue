@@ -26,6 +26,7 @@
         methods:{
             changecurrentIndex(index){
                 this.currentIndex=index
+                this.$emit('tabclick',index)
             }
         }
     }
@@ -38,6 +39,7 @@
     line-height: 40px;
     text-align: center;
     background: white;
+    z-index: 2;
 }
  .TabControl_item{
         flex: 1;

@@ -23,6 +23,7 @@
         right: 0px;
         bottom: 0;
         box-shadow: 0 -2px 1px rgba(100,100,100,.3);
+        z-index: 3;
     }
 
 </style>
