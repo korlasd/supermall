@@ -1,14 +1,14 @@
 <template>
     <div id="detail">
-        <detail-nav-bar class="detail-nav-bar"></detail-nav-bar>
-        <scroll class="content" ref="scroll">
+        <detail-nav-bar class="detail-nav-bar" @itemClick="itemClick"></detail-nav-bar>
+        <scroll class="content" ref="scroll" :prop-type="3" @scroll="contentScroll">
         <detail-swiper :topImages="topImages"></detail-swiper>
         <detail-base-info :goods="goods"></detail-base-info>
         <detail-shop-info :shop="shop"></detail-shop-info>
         <detail-goods-info :detail-info="detailInfo" @imageLoad="imageLoad"></detail-goods-info>
-        <detail-param-info :param-info="paramInfo"></detail-param-info>
-        <detail-comment-info :comment-info="commentInfo"></detail-comment-info>
-        <goods-list :goods="recommends"></goods-list>
+        <detail-param-info ref="params" :param-info="paramInfo"></detail-param-info>
+        <detail-comment-info ref="comment" :comment-info="commentInfo"></detail-comment-info>
+        <goods-list ref="recommend" :goods="recommends"></goods-list>
         </scroll>
 
         <detail-shop-car></detail-shop-car>
@@ -51,7 +51,9 @@
                 detailInfo:{},
                 paramInfo:{},
                 commentInfo:{},
-                recommends:[]
+                recommends:[],
+                themeTopY:[],
+                getThemeTopY:null
             }
         },
         created() {
@@ -73,6 +75,15 @@
                 if(data.rate.cRate!==0){
                     this.commentInfo=data.rate.list[0]
                 }
+                //8.详情页标签切换
+                this.getThemeTopY=debounce(() =>{
+                    this.themeTopY=[]
+                    this.themeTopY.push(0)
+                    this.themeTopY.push(this.$refs.params.$el.offsetTop)
+                    this.themeTopY.push(this.$refs.comment.$el.offsetTop)
+                    this.themeTopY.push(this.$refs.recommend.$el.offsetTop)
+                    console.log(this.themeTopY);
+                })
             })
             getRecommend().then(res =>{
                 this.recommends=res.data.list
@@ -88,6 +99,15 @@
         methods:{
             imageLoad(){
                 this.$refs.scroll.refresh()
+                //详情页标签切换
+                this.getThemeTopY()
+            },
+            itemClick(index){
+               this.$refs.scroll.scrollTo(0,-this.themeTopY[index],100)
+            },
+            contentScroll(position){
+                // const positionY=-position.y
+                console.log(position);
             }
 
         }
