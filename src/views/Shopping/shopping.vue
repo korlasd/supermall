@@ -1,7 +1,6 @@
 <template>
     <div class="shopping">
-
-        <Scroll class="content" :prop-type="3">
+        <Scroll class="content">
             <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
             <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
             <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
@@ -41,11 +40,14 @@
     .shopping{
         position: relative;
         height: 100vh;
-        overflow: hidden;
+
     }
     .content{
         position: absolute;
         width: 100%;
+        top: 44px;
+        bottom: 49px;
+        overflow: hidden;
 
     }
 </style>

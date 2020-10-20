@@ -1,6 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 
     <TabBar>
+
     <TabBarItem path="/home">
         <template v-slot:item_icon>
             <img src="../../../assets/img/TabBar/shouye.svg">
@@ -12,6 +13,7 @@
             <div>首页</div>
         </template>
     </TabBarItem>
+
     <TabBarItem path="/classfi">
         <template v-slot:item_icon>
             <img src="../../../assets/img/TabBar/fenlei.svg">

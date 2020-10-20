@@ -2,12 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 
+
 Vue.use(VueRouter)
 
 const Home= () =>import('../views/Home/Home.vue')
 const classification= () =>import('../views/classification/classification.vue')
 const shopping= () =>import('../views/Shopping/shopping.vue')
 const my= () =>import('../views/my/my.vue')
+const Detail= () =>import('../views/detail/Detail.vue')
 const routes = [
   {
     path:'',
@@ -28,6 +30,11 @@ const routes = [
   {
     path:'/my',
     component:my
+  }
+  ,
+  {
+    path: '/detail/:iid',
+    component: Detail
   }
 ]
 const router = new VueRouter({
