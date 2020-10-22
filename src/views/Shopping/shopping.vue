@@ -1,53 +1,54 @@
 <template>
     <div class="shopping">
-        <Scroll class="content">
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="5.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="5.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-            <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img.yzcdn.cn/vant/ipad.jpeg"></van-card>
-        </Scroll>
-        <van-submit-bar :price="3050" button-text="提交订单" @submit="onSubmit">
-            <van-checkbox v-model="checked">全选</van-checkbox>
-            <template #tip>
-                你的收货地址不支持同城送, <span @click="onClickEditAddress">修改地址</span>
-            </template>
-        </van-submit-bar>
-
+        <nav-bar class="nav-bar">
+            <div slot="center">
+                购物车({{length}})
+            </div>
+        </nav-bar>
+            <shopping-list class="shopping-list"></shopping-list>
+            <shopping-bottom class="shopping-bottom"></shopping-bottom>
     </div>
 </template>
 
 <script>
     import Scroll from "../../components/common/scroll/Scroll";
+    import NavBar from "../../components/common/navbar/NavBar";
+    import {mapGetters} from 'vuex'
+    import shoppingList from "./childComps/shoppingList";
+    import shoppingBottom from "./childComps/shoppingBottom";
     export default {
         name: "shopping",
         components:{
-            Scroll
-        }
+            NavBar,
+            Scroll,
+            shoppingList,
+            shoppingBottom
+        },
+        computed:{
+            ...mapGetters({
+                length:'cartLength'
+            })
+        },
+
     }
 </script>
 
 <style scoped>
     .shopping{
-        position: relative;
+        /*position: relative;*/
         height: 100vh;
 
     }
-    .content{
+    .nav-bar{
+        background: var(--color-tint);
+        color: #ffffff;
+        z-index: 15;
+    }
+    .shopping-list{
         position: absolute;
-        width: 100%;
         top: 44px;
         bottom: 49px;
-        overflow: hidden;
-
+        width: 100%;
     }
+
 </style>
