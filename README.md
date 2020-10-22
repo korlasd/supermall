@@ -1,5 +1,4 @@
 # supermall
-##  感谢coderwhy老师的开源精神
 
 ## Project setup
 ```
